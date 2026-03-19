@@ -1,3 +1,8 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+
+# 允許爬取所有頁面
+Allow: /
+
+# Sitemap 位置
+Sitemap: https://theluxevaulthk.com/sitemap.xml
