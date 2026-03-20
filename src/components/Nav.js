@@ -5,29 +5,23 @@ import { FaWhatsapp } from 'react-icons/fa';
 function Nav() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 桌面端下拉
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // 手機版菜單
-  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false); // 手機版品牌下拉
   const [isSticky, setIsSticky] = useState(false); 
   const dropdownRef = useRef(null); 
   const navRef = useRef(null); 
   const mobileMenuRef = useRef(null); // 手機版菜單容器
 
-//   const brands = [
-//     'Hermes', 'Gucci', 'Louis Vuitton', 'Chanel',
-//     'Prada', 'Goyard', 'Fendi', 'Celine', 'Dior'
-//   ];
-
-    const brands = [
-        { name: "收購品牌概覽", link: "/brands"},
-        { name: "Hermes", link: "/brands/hermes"},
-        { name: "Gucci", link: "/brands/gucci"},
-        { name: "Louis Vuitton", link: "/brands/lv"},
-        { name: "Chanel", link: "/brands/chanel"},
-        { name: "Prada", link: "/brands/prada"},
-        { name: "Goyard", link: "/brands/goyard"},
-        { name: "Fendi", link: "/brands/fendi"},
-        { name: "Celine", link: "/brands/celine"},
-        { name: "Dior", link: "/brands/dior"},
-    ]
+  const brands = [
+      { name: "收購品牌概覽", link: "/brands"},
+      { name: "Hermes", link: "/brands/hermes"},
+      { name: "Gucci", link: "/brands/gucci"},
+      { name: "Louis Vuitton", link: "/brands/lv"},
+      { name: "Chanel", link: "/brands/chanel"},
+      { name: "Prada", link: "/brands/prada"},
+      { name: "Goyard", link: "/brands/goyard"},
+      { name: "Fendi", link: "/brands/fendi"},
+      { name: "Celine", link: "/brands/celine"},
+      { name: "Dior", link: "/brands/dior"},
+  ]
 
   // 滾動釘頂邏輯
   useEffect(() => {
@@ -46,15 +40,14 @@ function Nav() {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target) && isDropdownOpen) {
         setIsDropdownOpen(false);
       }
-      // 關閉手機版菜單
+      // 關閉手機版菜單（移除 isMobileDropdownOpen 相關邏輯）
       if (isMobileMenuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
         setIsMobileMenuOpen(false);
-        setIsMobileDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isDropdownOpen, isMobileMenuOpen]);
+  }, [isDropdownOpen, isMobileMenuOpen]); // 移除 isMobileDropdownOpen 依賴
 
   // 手機版菜單開啟時鎖定頁面滾動
   useEffect(() => {
@@ -62,12 +55,12 @@ function Nav() {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
-      setIsMobileDropdownOpen(false); // 關閉菜單時同時收起品牌下拉
+      // 移除 setIsMobileDropdownOpen(false) 操作
     }
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen]); // 移除 isMobileDropdownOpen 依賴
 
   // 整合導航欄 className
   const navClasses = `
@@ -75,10 +68,9 @@ function Nav() {
     sticky top-0 z-40 ${isSticky ? 'shadow-md py-3' : 'py-4'}
   `.replace(/\s+/g, ' ').trim();
 
-  // 關閉手機版菜單的統一方法
+  // 關閉手機版菜單的統一方法（移除 setIsMobileDropdownOpen）
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    setIsMobileDropdownOpen(false);
   };
 
   return (
@@ -127,7 +119,6 @@ function Nav() {
             <a href="/blogs" className="text-text-primary hover:text-black transition-colors">部落格</a>
             <a href="/faq" className="text-text-primary hover:text-black transition-colors">FAQ</a>
             <a href="/case" className="text-text-primary hover:text-black transition-colors block py-2">真實交易案例</a>
-            {/* <a href="/" className="text-text-primary hover:text-black transition-colors">About Us</a> */}
           </div>
 
           {/* 手機版漢堡按鈕（隱藏桌面版） */}
@@ -180,18 +171,17 @@ function Nav() {
             <li><a href="/blogs" className="text-text-primary hover:text-black transition-colors block py-2">部落格</a></li>
             <li><a href="/faq" className="text-text-primary hover:text-black transition-colors block py-2">FAQ</a></li>
             <li><a href="/case" className="text-text-primary hover:text-black transition-colors block py-2">真實交易案例</a></li>
-            {/* <li><a href="#" className="text-text-primary hover:text-black transition-colors block py-2">About Us</a></li> */}
           </ul>
         </div>
       </div>
       {/* Whatsapp 聯絡我們 */}
       <div className="fixed bottom-6 right-6 z-50">
         <a
-          href="#"
+          href="https://wa.me/62239870"
           className="flex items-center bg-gray-50 shadow-lg px-4 py-2 rounded-full text-text-primary hover:bg-gray-100 transition-colors"
         >
           <FaWhatsapp style={{ color: '#25D366', fontSize: '24px' }} />
-          <sapn className="pl-1">Whatsapp 聯絡我們</sapn>
+          <span className="pl-1">Whatsapp 聯絡我們</span> {/* 修正拼寫錯誤：sapn → span */}
         </a>
       </div>
     </>

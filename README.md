@@ -1,3 +1,11 @@
+### node version
+    v22.19.0
+
+### Next step need to add
+    Google GTM
+    Whatsapp phone number
+
+
 ### icon
 npm install react-icons
 
