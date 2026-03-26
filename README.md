@@ -1,7 +1,7 @@
 ### node version
     v22.19.0
 
-### Next step need to add
+### Added on 2026.3.26
     Google GTM
     Whatsapp phone number
 
@@ -18,10 +18,6 @@ set global css
 
 ### SEO meta
 Added on all page
-
-== not add ==
-## Google Tag Manager
-    - Added GTM 
 
 ## Create Sitemap & robots
 

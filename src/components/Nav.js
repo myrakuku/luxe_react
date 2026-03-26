@@ -177,7 +177,7 @@ function Nav() {
       {/* Whatsapp 聯絡我們 */}
       <div className="fixed bottom-6 right-6 z-50">
         <a
-          href="https://wa.me/62239870"
+          href="https://wa.me/66771933"
           className="flex items-center bg-gray-50 shadow-lg px-4 py-2 rounded-full text-text-primary hover:bg-gray-100 transition-colors"
         >
           <FaWhatsapp style={{ color: '#25D366', fontSize: '24px' }} />
