@@ -114,7 +114,7 @@ function Nav() {
             </div>
 
             {/* 其他導航項 */}
-            <a href="/takeover&auth" className="text-text-primary hover:text-black transition-colors">收購及鑑定</a>
+            <a href="/takeoverauth" className="text-text-primary hover:text-black transition-colors">收購及鑑定</a>
             <a href="/howtosell" className="text-text-primary hover:text-black transition-colors">如何出售</a>
             <a href="/blogs" className="text-text-primary hover:text-black transition-colors">部落格</a>
             <a href="/faq" className="text-text-primary hover:text-black transition-colors">FAQ</a>
@@ -166,7 +166,7 @@ function Nav() {
           <ul className="space-y-8 text-lg font-playfair w-full">
             {/* 手機版導航項 */}
             <li><a href="/brands" className="text-text-primary hover:text-black transition-colors block py-2">收購品牌目錄</a></li>
-            <li><a href="/takeover&auth" className="text-text-primary hover:text-black transition-colors block py-2">收購及鑑定</a></li>
+            <li><a href="/takeoverauth" className="text-text-primary hover:text-black transition-colors block py-2">收購及鑑定</a></li>
             <li><a href="/howtosell" className="text-text-primary hover:text-black transition-colors block py-2">如何出售</a></li>
             <li><a href="/blogs" className="text-text-primary hover:text-black transition-colors block py-2">部落格</a></li>
             <li><a href="/faq" className="text-text-primary hover:text-black transition-colors block py-2">FAQ</a></li>
